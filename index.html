@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lab3</title>
+</head>
+<body>
+	<form name="form1">
+		<p>Задача 1</p>
+		Ax: <input type="text" size="5" name="st1">
+		Ay: <input type="text" size="5" name="st2">
+		Bx: <input type="text" size="5" name="st3">
+		By: <input type="text" size="5" name="st4">
+		Cx: <input type="text" size="5" name="st5">
+		Cy: <input type="text" size="5" name="st6">
+		<hr>
+		Ответ: <input type="text" size="5" id="result" onfocus="res(document.form1.st1.value, document.form1.st2.value, document.form1.st3.value, document.form1.st4.value, document.form1.st5.value, document.form1.st6.value,)">
+	</form>
+
+	<br>
+	<br>
+
+	<form name="form2">
+		<p>Задача 2</p>
+		Height: <input type="text" size="5" name="st7">
+		Width: <input type="text" size="5" name="st8">
+		<hr>
+		Ответ: <input type="text" size="20" name="result1" value="select me" onselect="res1(document.form2.st7.value, document.form2.st8.value)">
+	</form>
+
+	<br>
+	<br>
+
+	<form name="form3">
+		<p>Задача 3</p>
+		Первое значение: <input type="text" size="5" name="st9">
+		Второе значение: <input type="text" size="5" name="st10">
+		<hr>
+		Ответ: <input type="text" size="5" name="result3" onblur="switch_values(document.form3.st9.value, document.form3.st10.value)">
+	</form>
+
+	<script language="JavaScript">
+		function res (Ax, Ay, Bx, By, Cx, Cy) {
+			var s = 0.5 * (Math.abs((Ax - Cx) * (By - Cy) * (Bx - Cx) * (Ay - Cy)));
+			document.form1.result.value = s;
+		}
+
+		function res1 (height, width) {
+			var s = Math.sqrt(height) + Math.sqrt(width);
+			document.form2.result1.value = s;
+		}
+
+		function switch_values (a, b) {
+			var temp = a;
+			a = b;
+			b = temp;
+			document.form3.result3.value = document.write("Первое значение: ", a + " Второе значение: ", b);
+		}
+	</script>
+</body>
+</html>
